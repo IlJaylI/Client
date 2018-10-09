@@ -15,5 +15,6 @@ import { Component } from "@angular/core";
 /** Below is the class */
 export class AppComponent{
   pageTitle: string = 'Acme Product Management'
+  
 }
 
