@@ -1,10 +1,13 @@
 import { Component , OnInit } from "@angular/core";
 import { IProduct } from "./product";
+import { ConvertToSpacesPipe } from "../shared/convert-to-spaces.pipe";
+
+
 
 @Component({
     selector: 'pm-products',
     templateUrl: './product-list.component.html',
-    styleUrls: ['./product-list.component.css']
+    styleUrls: ['./product-list.component.css'],
 })
 
 
@@ -15,14 +18,20 @@ export class ProductList implements OnInit{
     filteredProducts : IProduct[];
     showImage:boolean = false;
 
+    constructor(){
+        this.filteredProducts =this.products;
+        this.listFilter = 'cart';
+    }
+
     getlistFilter():string{
             return this._listFilter;
     }
 
     set listFilter(value:string){
         this._listFilter= value;
-        this.filteredProducts=this.listFilter ? this.performFilter(this.listFilter):this.products;
+        this.filteredProducts=this._listFilter ? this.performFilter(this._listFilter):this.products;
     }
+
 
     toggleImage(){
         this.showImage = !this.showImage;
@@ -81,11 +90,12 @@ export class ProductList implements OnInit{
       }
       ];
 
-      performFilter(filterBy : string): IProduct[]{
+    performFilter(filterBy : string): IProduct[]{
         filterBy = filterBy.toLocaleLowerCase();
         return this.products.filter((product : IProduct) =>
                 product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
+
 
       ngOnInit() : void {
           console.log('I am working master. Fuck you!');
