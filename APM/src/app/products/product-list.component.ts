@@ -1,4 +1,4 @@
-import { Component , OnInit } from "@angular/core";
+import { Component , OnInit, Input } from "@angular/core";
 import { IProduct } from "./product";
 import { ConvertToSpacesPipe } from "../shared/convert-to-spaces.pipe";
 
@@ -12,15 +12,14 @@ import { ConvertToSpacesPipe } from "../shared/convert-to-spaces.pipe";
 
 
 export class ProductList implements OnInit{
-    pageTitle: string = 'ProductList'
     /**getTitle():string{return 'ProductList';}*/
+    pageTitle: string = 'ProductList'
     _listFilter :string;
     filteredProducts : IProduct[];
     showImage:boolean = false;
 
     constructor(){
         this.filteredProducts =this.products;
-        this.listFilter = 'cart';
     }
 
     getlistFilter():string{
@@ -98,6 +97,6 @@ export class ProductList implements OnInit{
 
 
       ngOnInit() : void {
-          console.log('I am working master. Fuck you!');
+          console.log('I am working master.');
       }
 }

@@ -44,7 +44,7 @@
                                 <td>{{p.productCode | ConvertToSpace: '-' }}</td>
                                 <td>{{p.releaseDate | date}}</td>
                                 <td>{{p.price | currency:'EUR': true:'1.2-5'}}</td>
-                                <td>{{p.starRating}}</td>
+                                <td><pm-star [rating]='p.starRating'></pm-star></td>
                             </tr>
                 </tbody>
             </table>
