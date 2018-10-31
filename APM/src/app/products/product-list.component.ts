@@ -18,6 +18,11 @@ export class ProductList implements OnInit{
     filteredProducts : IProduct[];
     showImage:boolean = false;
 
+    //onNotify(message:string):void{}
+    onRatingClicked(message:string){
+        this.pageTitle='Product List: ' + message;
+    }
+
     constructor(){
         this.filteredProducts =this.products;
     }
@@ -36,6 +41,7 @@ export class ProductList implements OnInit{
         this.showImage = !this.showImage;
     }
 
+    //#region Product interface
     products: IProduct[] = [
         {
           "productId": 1,
@@ -88,6 +94,7 @@ export class ProductList implements OnInit{
           "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
       }
       ];
+      //#endregion
 
     performFilter(filterBy : string): IProduct[]{
         filterBy = filterBy.toLocaleLowerCase();
